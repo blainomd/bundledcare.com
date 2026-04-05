@@ -98,6 +98,15 @@ function XIcon({ className }: { className?: string }) {
   );
 }
 
+function ArrowRightIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  );
+}
+
 /* ── Main Page ── */
 
 export default function Home() {
@@ -115,49 +124,77 @@ export default function Home() {
   return (
     <div className="font-sans">
       {/* ── NAV ── */}
-      <nav className="fixed top-0 w-full z-50 bg-bg/90 backdrop-blur-sm border-b border-navy/5">
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-navy/5">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#" className="text-xl font-semibold tracking-tight text-navy">
             bundled<span className="text-teal">care</span>
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-muted">
             <a href="#bundle" className="hover:text-navy transition-colors">The Bundle</a>
+            <a href="#how-it-works" className="hover:text-navy transition-colors">How It Works</a>
             <a href="#health-systems" className="hover:text-navy transition-colors">Health Systems</a>
             <a href="#families" className="hover:text-navy transition-colors">Families</a>
             <a href="#economics" className="hover:text-navy transition-colors">Economics</a>
-            <a href="#contact" className="bg-navy text-white px-4 py-2 rounded-lg hover:bg-navy-light transition-colors">Partner With Us</a>
+            <a href="#contact" className="bg-navy text-white px-4 py-2 rounded-xl hover:bg-navy-light transition-colors">Partner With Us</a>
           </div>
         </div>
       </nav>
 
       {/* ── HERO ── */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-teal-50 text-teal px-4 py-1.5 rounded-full text-sm font-medium mb-8">
+      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+        {/* Background orbs */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-teal/5 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-navy/5 rounded-full blur-3xl" />
+
+        <div className="relative max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 text-teal px-5 py-2 rounded-full text-sm font-medium mb-8">
             <ShieldIcon className="w-4 h-4" />
             Worker-owned cooperative care
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-navy leading-tight tracking-tight mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6 bg-gradient-to-br from-slate-800 to-teal-700 bg-clip-text text-transparent">
             One subscription.<br />Complete home care.
           </h1>
-          <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
             Companion care, medical necessity documentation, advance care planning, and HSA/FSA-eligible wellness — bundled for health systems and families.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#health-systems" className="bg-navy text-white px-8 py-3.5 rounded-lg text-base font-medium hover:bg-navy-light transition-colors">
+            <a href="#health-systems" className="bg-navy text-white px-8 py-4 rounded-xl text-base font-medium hover:bg-navy-light hover:shadow-xl hover:shadow-navy/20 transition-all duration-300">
               For Health Systems
             </a>
-            <a href="#families" className="border-2 border-navy text-navy px-8 py-3.5 rounded-lg text-base font-medium hover:bg-navy hover:text-white transition-colors">
+            <a href="#families" className="border-2 border-navy text-navy px-8 py-4 rounded-xl text-base font-medium hover:bg-navy hover:text-white transition-all duration-300">
               For Families
             </a>
           </div>
         </div>
       </section>
 
+      {/* ── METRICS ── */}
+      <section className="relative py-16 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy-light to-navy" />
+        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-teal/10 rounded-full blur-3xl -translate-y-1/2" />
+
+        <div className="relative max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { number: "$936", label: "avg. HSA savings/yr", accent: "text-emerald-400" },
+            { number: "15%", label: "projected turnover", accent: "text-teal-300" },
+            { number: "4-in-1", label: "bundled services", accent: "text-amber-400" },
+            { number: "$59", label: "per month", accent: "text-emerald-400" },
+          ].map((metric) => (
+            <div key={metric.label} className="text-center">
+              <div className={`text-4xl md:text-5xl font-bold ${metric.accent} mb-2`}>
+                {metric.number}
+              </div>
+              <div className="text-white/60 text-sm uppercase tracking-wider">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── THE BUNDLE ── */}
-      <section id="bundle" className="py-20 px-6 bg-surface">
+      <section id="bundle" className="py-24 px-6 bg-surface">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
+            <div className="text-xs uppercase tracking-[0.3em] text-amber-600 font-semibold mb-3">The Platform</div>
             <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">The Bundle</h2>
             <p className="text-muted text-lg max-w-xl mx-auto">
               Four services that belong together. Integrated by design, not duct tape.
@@ -166,7 +203,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Companion Care */}
-            <div className="bg-white rounded-2xl p-8 border border-navy/5 hover:shadow-lg transition-shadow">
+            <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
               <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-5">
                 <HeartIcon className="w-6 h-6 text-teal" />
               </div>
@@ -178,7 +215,7 @@ export default function Home() {
             </div>
 
             {/* LMN */}
-            <div className="bg-white rounded-2xl p-8 border border-navy/5 hover:shadow-lg transition-shadow">
+            <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
               <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-5">
                 <FileTextIcon className="w-6 h-6 text-teal" />
               </div>
@@ -190,7 +227,7 @@ export default function Home() {
             </div>
 
             {/* Advance Care Planning */}
-            <div className="bg-white rounded-2xl p-8 border border-navy/5 hover:shadow-lg transition-shadow">
+            <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
               <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-5">
                 <ShieldIcon className="w-6 h-6 text-teal" />
               </div>
@@ -202,7 +239,7 @@ export default function Home() {
             </div>
 
             {/* ComfortCard */}
-            <div className="bg-white rounded-2xl p-8 border border-navy/5 hover:shadow-lg transition-shadow">
+            <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
               <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-5">
                 <WalletIcon className="w-6 h-6 text-teal" />
               </div>
@@ -224,60 +261,126 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOR HEALTH SYSTEMS ── */}
-      <section id="health-systems" className="py-20 px-6">
+      {/* ── HOW IT WORKS ── */}
+      <section id="how-it-works" className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
+            <div className="text-xs uppercase tracking-[0.3em] text-amber-600 font-semibold mb-3">The Process</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">How It Works</h2>
+            <p className="text-muted text-lg max-w-xl mx-auto">
+              From first conversation to complete care in three steps.
+            </p>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-stretch gap-0 max-w-5xl mx-auto">
+            {/* Step 1 */}
+            <div className="flex-1 relative">
+              <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-8 h-full hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                <div className="w-10 h-10 bg-navy rounded-xl flex items-center justify-center text-white font-bold text-sm mb-5">1</div>
+                <h3 className="text-lg font-semibold text-navy mb-2">Subscribe</h3>
+                <p className="text-sm text-muted leading-relaxed">
+                  Sign up for $59/mo. LMN generated immediately, unlocking $936/yr in HSA savings. Net positive from day one.
+                </p>
+              </div>
+              {/* Arrow connector (hidden on mobile) */}
+              <div className="hidden md:flex absolute top-1/2 -right-4 z-10 w-8 h-8 items-center justify-center">
+                <ArrowRightIcon className="w-5 h-5 text-teal" />
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="flex-1 relative md:mx-4 mt-4 md:mt-0">
+              <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-8 h-full hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                <div className="w-10 h-10 bg-navy rounded-xl flex items-center justify-center text-white font-bold text-sm mb-5">2</div>
+                <h3 className="text-lg font-semibold text-navy mb-2">Match</h3>
+                <p className="text-sm text-muted leading-relaxed">
+                  AI-powered matching pairs you with a W-2 caregiver who fits your family. Not a stranger from a gig app.
+                </p>
+              </div>
+              {/* Arrow connector (hidden on mobile) */}
+              <div className="hidden md:flex absolute top-1/2 -right-4 z-10 w-8 h-8 items-center justify-center">
+                <ArrowRightIcon className="w-5 h-5 text-teal" />
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="flex-1 mt-4 md:mt-0">
+              <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-8 h-full hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                <div className="w-10 h-10 bg-navy rounded-xl flex items-center justify-center text-white font-bold text-sm mb-5">3</div>
+                <h3 className="text-lg font-semibold text-navy mb-2">Care</h3>
+                <p className="text-sm text-muted leading-relaxed">
+                  Companion care, advance directives, and ComfortCard activate. One relationship, one record, complete care.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOR HEALTH SYSTEMS / FOR SURGEONS ── */}
+      <section id="health-systems" className="relative py-24 px-6 bg-surface overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal/5 rounded-full blur-3xl translate-x-1/4 translate-y-1/4" />
+
+        <div className="relative max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="text-xs uppercase tracking-[0.3em] text-amber-600 font-semibold mb-3">Who We Serve</div>
             <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">Replace 5 vendors with one partner.</h2>
             <p className="text-muted text-lg max-w-2xl mx-auto">
               We operate the care. You get the data. FHIR-compatible, Omaha System outcomes, ready for your quality reporting.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-surface rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <HeartIcon className="w-6 h-6 text-teal" />
+          {/* Two-column layout */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* For Health Systems */}
+            <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-10 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+              <div className="w-14 h-14 bg-navy/10 rounded-2xl flex items-center justify-center mb-6">
+                <ChartIcon className="w-7 h-7 text-navy" />
               </div>
-              <h3 className="font-semibold text-navy mb-2">Reduce ER Utilization</h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Companion care means eyes in the home. Problems caught early, before they become emergencies.
-              </p>
+              <h3 className="text-2xl font-bold text-navy mb-4">For Health Systems</h3>
+              <ul className="space-y-4">
+                {[
+                  { icon: HeartIcon, text: "Reduce ER utilization with eyes in the home" },
+                  { icon: ChartIcon, text: "Improve quality metrics with Omaha System outcomes" },
+                  { icon: LinkIcon, text: "FHIR-compatible data feeds into your EHR" },
+                  { icon: TrendingDownIcon, text: "Lower readmissions through continuity of care" },
+                ].map((item) => (
+                  <li key={item.text} className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <item.icon className="w-4 h-4 text-teal" />
+                    </div>
+                    <span className="text-sm text-muted leading-relaxed">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="bg-surface rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <ChartIcon className="w-6 h-6 text-teal" />
+            {/* For Surgeons */}
+            <div className="bg-gradient-to-br from-navy to-navy-light rounded-3xl p-10 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
+                <UsersIcon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="font-semibold text-navy mb-2">Improve Quality Metrics</h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Omaha System outcomes data. Hospital-grade documentation from home care settings.
-              </p>
-            </div>
-
-            <div className="bg-surface rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <LinkIcon className="w-6 h-6 text-teal" />
-              </div>
-              <h3 className="font-semibold text-navy mb-2">Generate Referral Value</h3>
-              <p className="text-sm text-muted leading-relaxed">
-                FHIR-compatible data feeds integrate directly with your EHR and quality reporting systems.
-              </p>
-            </div>
-
-            <div className="bg-surface rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TrendingDownIcon className="w-6 h-6 text-teal" />
-              </div>
-              <h3 className="font-semibold text-navy mb-2">Lower Readmissions</h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Continuity of care from discharge to home. One partner, not a patchwork of disconnected services.
-              </p>
+              <h3 className="text-2xl font-bold text-white mb-4">For Surgeons</h3>
+              <ul className="space-y-4">
+                {[
+                  "Post-discharge companion care for your patients",
+                  "Documented outcomes tied back to your procedures",
+                  "Patient satisfaction and follow-up compliance",
+                  "Zero admin burden — we operate, you get the data",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckIcon className="w-4 h-4 text-teal-300" />
+                    </div>
+                    <span className="text-sm text-white/80 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          <div className="mt-12 bg-navy rounded-2xl p-8 md:p-12 text-center">
-            <p className="text-white/80 text-lg mb-2">The operating model</p>
+          <div className="bg-navy rounded-3xl p-8 md:p-12 text-center">
+            <p className="text-white/60 text-sm uppercase tracking-[0.3em] font-semibold mb-3">The Operating Model</p>
             <p className="text-white text-2xl md:text-3xl font-semibold">
               &ldquo;We operate. You get the data.&rdquo;
             </p>
@@ -286,28 +389,29 @@ export default function Home() {
       </section>
 
       {/* ── FOR FAMILIES ── */}
-      <section id="families" className="py-20 px-6 bg-surface">
+      <section id="families" className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
+            <div className="text-xs uppercase tracking-[0.3em] text-amber-600 font-semibold mb-3">For Families</div>
             <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">The subscription that pays for itself.</h2>
             <p className="text-muted text-lg max-w-xl mx-auto">
               The app that comes with a caregiver.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl border border-navy/5 overflow-hidden max-w-lg mx-auto">
-            <div className="bg-navy p-8 text-center">
+          <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl overflow-hidden max-w-lg mx-auto hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+            <div className="bg-gradient-to-br from-navy to-navy-light p-8 text-center">
               <div className="text-white/70 text-sm font-medium mb-1">BundledCare Subscription</div>
               <div className="flex items-baseline justify-center gap-1">
-                <span className="text-5xl font-bold text-white">$59</span>
+                <span className="text-6xl font-bold text-white">$59</span>
                 <span className="text-white/60">/mo</span>
               </div>
             </div>
             <div className="p-8">
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-teal font-bold text-sm">D1</span>
+                  <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-emerald-600 font-bold text-sm">D1</span>
                   </div>
                   <div>
                     <p className="font-semibold text-navy">Day One</p>
@@ -315,7 +419,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-teal font-bold text-sm">M1</span>
                   </div>
                   <div>
@@ -324,8 +428,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-teal font-bold text-sm">Y1</span>
+                  <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-amber-600 font-bold text-sm">Y1</span>
                   </div>
                   <div>
                     <p className="font-semibold text-navy">Year One</p>
@@ -339,9 +443,10 @@ export default function Home() {
       </section>
 
       {/* ── THE ECONOMICS ── */}
-      <section id="economics" className="py-20 px-6">
+      <section id="economics" className="py-24 px-6 bg-surface">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
+            <div className="text-xs uppercase tracking-[0.3em] text-amber-600 font-semibold mb-3">The Numbers</div>
             <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">The Economics</h2>
             <p className="text-muted text-lg max-w-xl mx-auto">
               Side by side. Fragmented care vs. bundled care.
@@ -350,7 +455,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Without */}
-            <div className="bg-white rounded-2xl p-8 border border-red-200">
+            <div className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-red-200/50 shadow-xl shadow-red-500/5 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
               <h3 className="text-xl font-semibold text-navy mb-6 flex items-center gap-2">
                 <XIcon className="w-5 h-5 text-red-400" />
                 Without BundledCare
@@ -373,7 +478,7 @@ export default function Home() {
             </div>
 
             {/* With */}
-            <div className="bg-white rounded-2xl p-8 border-2 border-teal">
+            <div className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 border-2 border-teal shadow-xl shadow-teal-500/10 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
               <h3 className="text-xl font-semibold text-navy mb-6 flex items-center gap-2">
                 <CheckIcon className="w-5 h-5 text-teal" />
                 With BundledCare
@@ -399,9 +504,12 @@ export default function Home() {
       </section>
 
       {/* ── COOPERATIVE DIFFERENCE ── */}
-      <section className="py-20 px-6 bg-navy">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 text-white/80 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
+      <section className="relative py-24 px-6 bg-navy overflow-hidden">
+        <div className="absolute top-0 left-1/3 w-[400px] h-[400px] bg-teal/10 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-navy-light/50 rounded-full blur-3xl translate-y-1/2" />
+
+        <div className="relative max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/80 px-5 py-2 rounded-full text-sm font-medium mb-8">
             <UsersIcon className="w-4 h-4" />
             The cooperative difference
           </div>
@@ -409,52 +517,61 @@ export default function Home() {
             When caregivers earn $25-28/hr W-2 + equity,<br className="hidden md:block" />
             77% turnover drops to 15%.
           </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-white/70 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
             Worker-owned cooperative model. Caregivers stay because they are owners, not gig workers. Continuity of care is not a feature — it is a structural outcome of ownership.
           </p>
           <div className="grid sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div>
-              <div className="text-4xl font-bold text-gold mb-2">$25-28</div>
-              <div className="text-white/60 text-sm">/hr W-2 wages</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-gold mb-2">15%</div>
-              <div className="text-white/60 text-sm">projected turnover</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-gold mb-2">Equity</div>
-              <div className="text-white/60 text-sm">caregiver ownership</div>
-            </div>
+            {[
+              { number: "$25-28", label: "/hr W-2 wages" },
+              { number: "15%", label: "projected turnover" },
+              { number: "Equity", label: "caregiver ownership" },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6">
+                <div className="text-4xl font-bold text-gold mb-2">{stat.number}</div>
+                <div className="text-white/60 text-sm">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section id="contact" className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section id="contact" className="relative py-24 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy" />
+        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-teal/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+
+        <div className="relative max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-xs uppercase tracking-[0.3em] text-teal-300 font-semibold mb-3">Get Started</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to bundle?</h2>
+            <p className="text-white/60 text-lg max-w-xl mx-auto">
+              Whether you are a health system or a family, one conversation starts it all.
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-8">
             {/* Health Systems */}
-            <div className="bg-surface rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-navy mb-3">For Health Systems</h3>
-              <p className="text-muted mb-6 leading-relaxed">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+              <h3 className="text-2xl font-bold text-white mb-3">For Health Systems</h3>
+              <p className="text-white/60 mb-6 leading-relaxed">
                 Replace fragmented vendor relationships with one integrated care partner. We bring the operations, the data, and the outcomes.
               </p>
               <a
                 href="mailto:partnerships@bundledcare.com"
-                className="inline-block bg-navy text-white px-6 py-3 rounded-lg font-medium hover:bg-navy-light transition-colors"
+                className="inline-block bg-teal text-white px-6 py-3 rounded-xl font-medium hover:bg-teal-light hover:shadow-lg hover:shadow-teal/30 transition-all duration-300"
               >
                 Partner With Us
               </a>
             </div>
 
             {/* Families */}
-            <div className="bg-surface rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-navy mb-3">For Families</h3>
-              <p className="text-muted mb-6 leading-relaxed">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+              <h3 className="text-2xl font-bold text-white mb-3">For Families</h3>
+              <p className="text-white/60 mb-6 leading-relaxed">
                 Join the waitlist for BundledCare. One subscription that pays for itself — companion care, LMN, advance directives, and wellness wallet.
               </p>
               {submitted ? (
-                <div className="flex items-center gap-2 text-teal font-medium">
+                <div className="flex items-center gap-2 text-teal-300 font-medium">
                   <CheckIcon className="w-5 h-5" />
                   Thank you. We will be in touch.
                 </div>
@@ -466,11 +583,11 @@ export default function Home() {
                     placeholder="Your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 px-4 py-3 rounded-lg border border-navy/10 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal"
+                    className="flex-1 px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white text-sm placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-teal/50 focus:border-teal"
                   />
                   <button
                     type="submit"
-                    className="bg-teal text-white px-6 py-3 rounded-lg font-medium hover:bg-teal-light transition-colors text-sm whitespace-nowrap"
+                    className="bg-teal text-white px-6 py-3 rounded-xl font-medium hover:bg-teal-light hover:shadow-lg hover:shadow-teal/30 transition-all duration-300 text-sm whitespace-nowrap"
                   >
                     Join Waitlist
                   </button>
