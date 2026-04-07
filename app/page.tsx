@@ -598,6 +598,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── CONNECTOR ── */}
+      <section id="connector" className="relative py-24 px-6 bg-surface overflow-hidden">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+            Get the BundledCare connector
+          </h2>
+          <p className="text-muted text-lg mb-8 max-w-xl mx-auto">
+            Add the SolvingHealth connector to Claude and get instant access to care tools, HSA savings estimates, and caregiver matching.
+          </p>
+          <div className="bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 rounded-3xl p-6 text-left max-w-lg mx-auto mb-8">
+            <p className="text-xs font-medium text-muted uppercase tracking-wider mb-3">Claude Desktop MCP Config</p>
+            <pre className="text-sm text-navy overflow-x-auto whitespace-pre font-mono leading-relaxed">{`"bundledcare": {
+  "command": "npx",
+  "args": ["-y", "@anthropic-ai/mcp-remote",
+    "https://solvinghealth.com/mcp"]
+}`}</pre>
+          </div>
+          <p className="text-muted text-sm">
+            Don&apos;t have Claude? Get it free at{" "}
+            <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="text-teal font-medium hover:underline">claude.ai</a>
+            {" "}or use the chat and voice widgets on this page.
+          </p>
+        </div>
+      </section>
+
       {/* ── FOOTER ── */}
       <footer className="border-t border-navy/5 py-12 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
