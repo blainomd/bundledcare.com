@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import EpisodeCalculator from "./components/EpisodeCalculator";
 
 /* ── SVG icon components ── */
 
@@ -579,6 +580,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Episode Calculator */}
+      <EpisodeCalculator />
 
       {/* ── CONTACT / CTA ── */}
       <section id="contact" className="relative py-24 px-6 overflow-hidden">
