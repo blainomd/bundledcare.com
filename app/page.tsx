@@ -135,6 +135,7 @@ export default function Home() {
             <a href="#health-systems" className="hover:text-navy transition-colors">Health Systems</a>
             <a href="#families" className="hover:text-navy transition-colors">Families</a>
             <a href="#economics" className="hover:text-navy transition-colors">Economics</a>
+            <a href="#connector" className="hover:text-navy transition-colors">Connector</a>
             <a href="#contact" className="bg-navy text-white px-4 py-2 rounded-xl hover:bg-navy-light transition-colors">Partner With Us</a>
           </div>
         </div>
@@ -557,7 +558,7 @@ export default function Home() {
                 Replace fragmented vendor relationships with one integrated care partner. We bring the operations, the data, and the outcomes.
               </p>
               <a
-                href="mailto:partnerships@bundledcare.com"
+                href="#contact"
                 className="inline-block bg-teal text-white px-6 py-3 rounded-xl font-medium hover:bg-teal-light hover:shadow-lg hover:shadow-teal/30 transition-all duration-300"
               >
                 Partner With Us
