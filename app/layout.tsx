@@ -33,6 +33,7 @@ export default function RootLayout({
         {children}
         <Script src="https://solvinghealth.com/chat-widget.js" data-channel="bundledcare" data-color="#0D7377" strategy="lazyOnload" />
         <Script src="https://solvinghealth.com/voice-embed.js" data-site="bundledcare" strategy="lazyOnload" />
+        <Script src="https://solvinghealth.com/footer.js" data-brand="co-op.care" data-theme="light" strategy="lazyOnload" />
       </body>
     </html>
   );
