@@ -259,6 +259,90 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── EXAMPLE BUNDLE ── */}
+      <section id="example-bundle" className="py-20 px-6 bg-surface">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="text-xs uppercase tracking-[0.3em] text-amber-600 font-semibold mb-3">Example Bundle</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Total Knee Replacement — 90-Day Episode</h2>
+            <p className="text-muted text-base max-w-2xl mx-auto">
+              A populated example of what one BundledCare episode looks like, end to end. Drop-in pricing for a CJR-X joint replacement.
+            </p>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-xl border border-teal-100/60 shadow-xl shadow-teal-500/5 rounded-3xl overflow-hidden">
+            <div className="grid md:grid-cols-3">
+              {/* Left column — price */}
+              <div className="bg-gradient-to-br from-navy to-navy-light p-8 md:p-10 text-white flex flex-col justify-between">
+                <div>
+                  <div className="text-xs uppercase tracking-[0.3em] text-teal-300 font-semibold mb-3">Bundle Price</div>
+                  <div className="text-5xl md:text-6xl font-bold mb-1">$177</div>
+                  <div className="text-white/70 text-sm mb-6">per patient, full 90-day episode</div>
+                  <div className="text-xs text-white/50 leading-relaxed">
+                    Billed as $59/month × 3 months. One avoidable readmission ($15K+ avg) funds 84+ episodes.
+                  </div>
+                </div>
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <div className="text-xs uppercase tracking-wider text-teal-300 mb-1">CMS Episode Reference</div>
+                  <div className="text-sm text-white/80">CJR-X · MS-DRG 469 / 470</div>
+                </div>
+              </div>
+
+              {/* Right column — what's included */}
+              <div className="md:col-span-2 p-8 md:p-10">
+                <div className="text-xs uppercase tracking-wider text-muted font-semibold mb-4">What&apos;s Included</div>
+                <ul className="space-y-3 mb-8">
+                  {[
+                    { label: "48-hour post-discharge home deployment", detail: "W-2 coordinator on site within 2 days" },
+                    { label: "Daily check-ins for 14 days, then 3×/week", detail: "Vitals, wound, pain, mobility, fall risk" },
+                    { label: "Wound inspection and documented protocol", detail: "Photo capture, escalation to attending via FHIR" },
+                    { label: "Physical therapy adherence coaching", detail: "Home exercise program tracked against PT plan" },
+                    { label: "Medication reconciliation and refill alerts", detail: "DVT prophylaxis, pain step-down, anticoagulation" },
+                    { label: "24/7 escalation pathway to surgeon on call", detail: "Structured triage — wound, pain, fall, fever" },
+                    { label: "Omaha System outcomes coded to your EHR", detail: "No manual abstraction, audit-ready quality data" },
+                  ].map((item) => (
+                    <li key={item.label} className="flex items-start gap-3">
+                      <div className="w-5 h-5 bg-teal-50 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckIcon className="w-3 h-3 text-teal" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-navy leading-snug">{item.label}</div>
+                        <div className="text-xs text-muted leading-snug">{item.detail}</div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-navy/10">
+                  <div>
+                    <div className="text-2xl font-bold text-navy">$15,000+</div>
+                    <div className="text-xs text-muted uppercase tracking-wider">avg readmission cost</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-navy">90 days</div>
+                    <div className="text-xs text-muted uppercase tracking-wider">episode window</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-teal">84×</div>
+                    <div className="text-xs text-muted uppercase tracking-wider">break-even ratio</div>
+                  </div>
+                </div>
+
+                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                  <a href="#calculator" className="inline-flex items-center justify-center gap-2 bg-navy text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-navy-light transition-colors">
+                    Run your own numbers
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </a>
+                  <a href="#contact" className="inline-flex items-center justify-center gap-2 border-2 border-navy text-navy px-6 py-3 rounded-xl text-sm font-medium hover:bg-navy hover:text-white transition-colors">
+                    Request a pilot
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── METRICS ── */}
       <section className="relative py-16 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy-light to-navy" />
@@ -582,7 +666,9 @@ export default function Home() {
       </section>
 
       {/* Episode Calculator */}
-      <EpisodeCalculator />
+      <div id="calculator">
+        <EpisodeCalculator />
+      </div>
 
       {/* ── CONTACT / CTA ── */}
       <section id="contact" className="relative py-24 px-6 overflow-hidden">
