@@ -237,16 +237,16 @@ export default function Home() {
         <div className="relative max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl border border-teal-100/50 shadow-xl shadow-teal-500/5 text-teal px-5 py-2 rounded-full text-sm font-medium mb-8">
             <BuildingIcon className="w-4 h-4" />
-            Post-acute home care for bundled payment programs
+            Value-based surgical bundles · CJR-X &amp; TEAM aligned
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6 bg-gradient-to-br from-slate-800 to-teal-700 bg-clip-text text-transparent">
-            Bundle home care into<br />your care episode.
+            The price of your episode.<br />Known before day one.
           </h1>
           <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-6 leading-relaxed">
-            One subscription. Better outcomes.
+            Surgical bundles work when every dollar has an address.
           </p>
           <p className="text-base text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
-            Add post-acute home care to your bundled payment program. $59 per patient per month. 90-day episode. Reduce readmissions and episode cost.
+            BundledCare adds physician-attested home care to your 90-day episode — $177 flat, tracked in real time, ICD-coded at discharge. No surprise costs. No readmission roulette.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#contact" className="bg-navy text-white px-8 py-4 rounded-xl text-base font-medium hover:bg-navy-light hover:shadow-xl hover:shadow-navy/20 transition-all duration-300">
