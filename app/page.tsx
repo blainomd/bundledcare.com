@@ -750,8 +750,9 @@ export default function Home() {
             </div>
             <p className="text-sm text-muted mt-1">Post-acute home care for bundled payment programs.</p>
           </div>
-          <div className="text-sm text-muted">
-            A <a href="https://co-op.care" className="text-teal hover:underline">co-op.care</a> company
+          <div className="text-sm text-muted flex items-center gap-4">
+            <span>A <a href="https://co-op.care" className="text-teal hover:underline">co-op.care</a> company</span>
+            <a href="https://co-op.care/manifesto" className="text-teal hover:underline">Read the manifesto →</a>
           </div>
         </div>
       </footer>
